@@ -6,7 +6,7 @@ module Api
       before_action :basic_authenticate if Rails.env.production?
 
       def index
-        render json: { title: "this site is ONEPIECE DB!" }
+        render json: { title: "Welcome ONEPIECE DB!" }
       end
 
       private
