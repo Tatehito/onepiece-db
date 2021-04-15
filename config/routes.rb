@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  root "samples#index"
+  namespace :api, format: 'json' do
+    namespace :v1 do
+      get  "/"  => "samples#index"
+    end
+  end
 end
