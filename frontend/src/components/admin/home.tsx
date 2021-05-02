@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
+import { Admin, Resource } from 'react-admin';
+import jsonServerProvider from 'ra-data-json-server';
 import Sample from '../../api/sample'
+
+import { PostList } from '../characters';
 
 class Home extends React.Component {
   state = {
@@ -13,7 +17,9 @@ class Home extends React.Component {
   }
 
   render() {
-    return <h2>{ this.state.title }</h2>;
+    return <Admin dataProvider={jsonServerProvider('https://jsonplaceholder.typicode.com')}>
+            <Resource name="posts" list={PostList} />
+          </Admin>;
   }
 }
 export default Home;
