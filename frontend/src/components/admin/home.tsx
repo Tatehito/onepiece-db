@@ -1,25 +1,12 @@
-import React, { useState } from 'react'
-import { Admin, Resource } from 'react-admin';
+import React from 'react'
+
+import { Admin, Resource, ListGuesser, EditGuesser } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
-import Sample from '../../api/sample'
+import { CharacterList, CharacterShow, CharacterEdit, CharacterCreate } from '../characters';
 
-import { PostList } from '../characters';
-
-class Home extends React.Component {
-  state = {
-    title: ""
-  }
-
-  componentDidMount() {
-    Sample.get("/").then((res: { data: any; }) => {
-      this.setState({ title : res.data.title });
-    });
-  }
-
-  render() {
-    return <Admin dataProvider={jsonServerProvider('https://jsonplaceholder.typicode.com')}>
-            <Resource name="posts" list={PostList} />
-          </Admin>;
-  }
-}
+const Home = () => (
+  <Admin dataProvider={jsonServerProvider(process.env.REACT_APP_DEV_SERVER_URL)}>
+    <Resource name="samples" list={CharacterList} edit={CharacterEdit} create={CharacterCreate} show={CharacterShow} />
+  </Admin>
+)
 export default Home;
