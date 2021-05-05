@@ -5,7 +5,7 @@ import jsonServerProvider from 'ra-data-json-server';
 import { CharacterList, CharacterShow, CharacterEdit, CharacterCreate } from './characters';
 
 const Home = () => (
-  <Admin dataProvider={jsonServerProvider(process.env.REACT_APP_DEV_SERVER_URL)}>
+  <Admin dataProvider={jsonServerProvider("https://onepiece-db.herokuapp.com/api/v1")}>
     <Resource name="characters" list={CharacterList} show={CharacterShow} />
   </Admin>
 )
