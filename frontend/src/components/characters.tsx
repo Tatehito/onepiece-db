@@ -3,6 +3,7 @@ import {
     List,
     Datagrid,
     TextField,
+    DateField,
     ReferenceField,
     ShowButton,
     EditButton,
@@ -14,15 +15,16 @@ import {
     ReferenceInput,
     SelectInput,
     TextInput,
+    DateInput,
     SaveButton
 } from 'react-admin';
 
 export const CharacterList = (props:any) => (
-    <List {...props} title={ "Sample" } bulkActionButtons={ false } exporter={ false } >
+    <List {...props} title={ "Characters" } bulkActionButtons={ false } exporter={ false } >
         <Datagrid>
-            <TextField source="name" />
-            <TextField source="username" />
-            <TextField source="email" />
+            <TextField source="fullname" />
+            <TextField source="age" />
+            <TextField source="birthday" />
             <TextField source="id" />
             <ShowButton />
             <EditButton />
@@ -32,20 +34,20 @@ export const CharacterList = (props:any) => (
 
 export const CharacterEdit = (props:any) => (
     <Edit {...props}>
-        <SimpleForm>
-            <TextInput source="name" />
-            <TextInput source="username" />
-            <TextInput source="email" />
+        <SimpleForm redirect="list">
+            <TextInput source="fullname" />
+            <TextInput source="age" />
+            <DateInput source="birthday" />
         </SimpleForm>
     </Edit>
 );
 
 export const CharacterCreate = (props:any) => (
     <Create {...props}>
-        <SimpleForm>
-            <TextInput source="name" />
-            <TextInput source="username" />
-            <TextInput source="email" />
+        <SimpleForm redirect="list">
+            <TextInput source="fullname" />
+            <TextInput source="age" />
+            <DateInput source="birthday" />
         </SimpleForm>
     </Create>
 );
@@ -53,9 +55,9 @@ export const CharacterCreate = (props:any) => (
 export const CharacterShow = (props:any) => (
     <Show {...props}>
         <SimpleShowLayout>
-            <TextField source="name" />
-            <TextField source="username" />
-            <TextField source="email" />
+            <TextField source="fullname" />
+            <TextField source="age" />
+            <DateField source="birthday" />
         </SimpleShowLayout>
     </Show>
 );

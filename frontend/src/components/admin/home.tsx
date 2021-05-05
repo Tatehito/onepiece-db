@@ -6,7 +6,12 @@ import { CharacterList, CharacterShow, CharacterEdit, CharacterCreate } from '..
 
 const Home = () => (
   <Admin dataProvider={jsonServerProvider(process.env.REACT_APP_DEV_SERVER_URL)}>
-    <Resource name="samples" list={CharacterList} edit={CharacterEdit} create={CharacterCreate} show={CharacterShow} />
+    <Resource name="characters" 
+      list={CharacterList} 
+      edit={CharacterEdit} 
+      create={CharacterCreate} 
+      show={CharacterShow} 
+    />
   </Admin>
 )
 export default Home;
