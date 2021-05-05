@@ -4,9 +4,9 @@ import { Admin, Resource, ListGuesser, EditGuesser } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
 import { CharacterList, CharacterShow, CharacterEdit, CharacterCreate } from './characters';
 
-const Home = () => (
+const adminHome = () => (
   <Admin dataProvider={jsonServerProvider(process.env.REACT_APP_DEV_SERVER_URL)}>
-    <Resource name="characters" list={CharacterList} show={CharacterShow} />
+    <Resource name="characters" list={CharacterList} edit={CharacterEdit} create={CharacterCreate} show={CharacterShow} />
   </Admin>
 )
-export default Home;
+export default adminHome;

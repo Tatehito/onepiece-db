@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
 import axios from 'axios';
 
 import Home from './components/home';
-import Admin from './components/admin/home';
+import Admin from './components/adminHome';
 
 class App extends React.Component {
   render() {
